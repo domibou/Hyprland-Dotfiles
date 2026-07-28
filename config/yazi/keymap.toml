@@ -1,0 +1,4 @@
+[[manager.prepend_keymap]]
+on = "<Delete>"
+run = "remove"
+desc = "Delete selected files"

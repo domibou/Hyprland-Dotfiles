@@ -1,0 +1,79 @@
+# ~/.config/yazi/theme.toml
+
+[mgr]
+cwd = { fg = "#7e9cd8", bold = true }
+
+regular = { fg = "#f2ecbc" }
+directory = { fg = "#7e9cd8", bold = true }
+symlink = { fg = "#7fb4ca" }
+executable = { fg = "#98bb6c", bold = true }
+
+hovered = { bg = "#2a2a37" }
+preview_hovered = { bg = "#2a2a37" }
+
+find_keyword = { fg = "#e6c384", bold = true }
+find_position = { fg = "#7e9cd8", bold = true }
+
+marker_selected = { fg = "#98bb6c", bg = "#98bb6c" }
+marker_copied = { fg = "#7fb4ca", bg = "#7fb4ca" }
+marker_cut = { fg = "#c34043", bg = "#c34043" }
+
+tab_active = { fg = "#1f1f28", bg = "#7e9cd8", bold = true }
+tab_inactive = { fg = "#dcd7ba", bg = "#2a2a37" }
+
+border_symbol = "│"
+border_style = { fg = "#54546d" }
+
+count_selected = { fg = "#98bb6c", bold = true }
+count_copied = { fg = "#7fb4ca", bold = true }
+count_cut = { fg = "#c34043", bold = true }
+
+[status]
+separator_open = ""
+separator_close = ""
+
+mode_normal = { fg = "#1f1f28", bg = "#7e9cd8", bold = true }
+mode_select = { fg = "#1f1f28", bg = "#98bb6c", bold = true }
+mode_unset = { fg = "#1f1f28", bg = "#e6c384", bold = true }
+
+progress_label = { fg = "#f2ecbc", bold = true }
+progress_normal = { fg = "#7e9cd8" }
+progress_error = { fg = "#c34043" }
+
+[input]
+border = { fg = "#7e9cd8" }
+title = { fg = "#7e9cd8", bold = true }
+value = {}
+selected = { reversed = true }
+
+[select]
+border = { fg = "#7e9cd8" }
+active = { fg = "#7e9cd8", bold = true }
+inactive = {}
+
+[tasks]
+border = { fg = "#54546d" }
+title = { fg = "#7e9cd8", bold = true }
+
+[which]
+cols = 3
+mask = { bg = "#16161d" }
+cand = { fg = "#7e9cd8" }
+rest = { fg = "#dcd7ba" }
+desc = { fg = "#727169" }
+
+[help]
+on = { fg = "#7e9cd8", bold = true }
+run = { fg = "#98bb6c" }
+desc = { fg = "#dcd7ba" }
+hovered = { bg = "#2a2a37" }
+footer = { fg = "#727169", italic = true }
+
+[filetype]
+rules = [
+    { mime = "image/*", fg = "#98bb6c" },
+    { mime = "video/*", fg = "#c0a36e" },
+    { mime = "audio/*", fg = "#957fb8" },
+    { mime = "text/*", fg = "#f2ecbc" },
+    { mime = "application/*", fg = "#7fb4ca" },
+]

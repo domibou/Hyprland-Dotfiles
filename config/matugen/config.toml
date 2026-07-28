@@ -1,0 +1,18 @@
+# ~/.config/matugen/config.toml
+
+[config]
+reload_apps = true
+
+[wallpaper]
+command = "swww img {{image}} --transition-type grow"
+
+[templates]
+
+[templates.hyprland]
+input_path = "~/.dotfiles/config/matugen/templates/hyprland.lua"
+output_path = "~/.dotfiles/config/hypr/colors.lua"
+post_hook = "hyprctl reload"
+
+[templates.kitty]
+input_path = "~/.dotfiles/config/matugen/templates/kitty.conf"
+output_path = "~/.dotfiles/config/kitty/colors.conf"
