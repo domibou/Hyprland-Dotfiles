@@ -13,6 +13,7 @@ ln -sfn "$REPO_DIR" "$DOTFILES"
 
 configs=(
     hypr
+    quickshell
     kitty
     matugen
     yazi
