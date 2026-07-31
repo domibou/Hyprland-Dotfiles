@@ -1,8 +1,9 @@
 import Quickshell
-import Quickshell.Widgets
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Hyprland
+
+import "../"
 
 Scope {
     readonly property var focusedScreen: {
@@ -15,6 +16,7 @@ Scope {
 
     PanelWindow {
         screen: focusedScreen
+        visible: !showBar
 
         anchors {
             top: true
@@ -22,19 +24,28 @@ Scope {
             right: true
         }
 
-        implicitHeight: 1
-        visible: !showBar
+        implicitHeight: 3
         color: "transparent"
 
         MouseArea {
             anchors.fill: parent
             hoverEnabled: true
+
             onEntered: showBar = true
         }
     }
 
     PanelWindow {
+        id: hotEdge
+        
         screen: focusedScreen
+        visible: showBar
+
+        margins {
+            top: Config.barMargins
+            left: Config.barMargins
+            right: Config.barMargins
+        }
 
         anchors {
             top: true
@@ -42,28 +53,54 @@ Scope {
             right: true
         }
 
-        implicitHeight: 60
-        visible: showBar
+        implicitHeight: Config.barHeight
         color: "transparent"
 
-        RowLayout {
-            z: 0
-            anchors.fill: parent
-            anchors.leftMargin: 25
-            anchors.rightMargin: 25
-
-            Item { Layout.fillWidth: true }
-            Time {}
-
-            Item { Layout.fillWidth: true }
-            Volume {}
+        HoverHandler {
+            onHoveredChanged: {
+                if (!hovered) showBar = false
+            }
         }
 
-        MouseArea {
-            z: 1
+        Rectangle {
+            id: bar
+
             anchors.fill: parent
-            hoverEnabled: true
-            onExited: showBar = false
+
+            border.width: Config.borderWidth
+            border.color: Colors.border
+
+            radius: Config.barHeight / 2
+            color: '#421e1e2e'
+
+            Item {
+                anchors.fill: parent
+
+                RowLayout {
+                    anchors.left: parent.left
+                    anchors.leftMargin: Config.widgetMargin
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    spacing: 8
+
+                    Nightlight {}
+                }
+
+                Time {
+                    anchors.centerIn: parent
+                }
+
+                RowLayout {
+                    anchors.right: parent.right
+                    anchors.rightMargin: Config.widgetMargin
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    spacing: 8
+
+                    Audio {}
+                    Wifi {}
+                }
+            }
         }
     }
 }

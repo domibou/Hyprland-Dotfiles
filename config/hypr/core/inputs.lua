@@ -20,6 +20,7 @@ hl.config({
 })
 
 hl.device({
-    name = "keychron-keychron-k2-pro-keyboard",
+    name = "keychron-k2-pro-keyboard",
     kb_layout = "us,ca",
 })
+

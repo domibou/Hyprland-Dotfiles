@@ -1,24 +1,20 @@
-import Quickshell
-import Quickshell.Services.Pipewire
 import QtQuick
-import QtQuick.Layouts
 
 import "../services"
+import "../"
 
-Rectangle {
-    width: 100
-    height: 40
-    radius: 22
 
-    Text {
-        anchors.centerIn: parent
+Text {
+    id: content
 
-        text: Time.time
+    anchors.centerIn: parent
 
-        font {
-            family: "JetBrainsMono Nerd Font"
-            pixelSize: 16
-            weight: 500
-        }
+    text: Time.time
+    color: Colors.text
+
+    font {
+        family: Config.textFontFamily
+        pixelSize: Config.textSize
+        weight: Config.textWeight
     }
 }

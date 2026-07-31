@@ -58,7 +58,7 @@ hl.bind(main .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(main .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(main .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("hyprctl switchxkblayout keychron-keychron-k2-pro-keyboard next"))
+hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("hyprctl switchxkblayout keychron-k2-pro-keyboard next"))
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })

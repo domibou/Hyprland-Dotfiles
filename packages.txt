@@ -19,3 +19,6 @@ hyprlauncher
 
 hypridle
 ddcutil
+
+quickshell
+hyprsunset

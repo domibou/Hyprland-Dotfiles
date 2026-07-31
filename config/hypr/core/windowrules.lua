@@ -30,9 +30,8 @@ hl.window_rule({
 })
 
 hl.layer_rule({
-  match        = { namespace = "walker" },
+  match        = { namespace = "quickshell", "walker" },
   blur         = true,
-  ignore_alpha = 0.5,
-  animation = "popin 95%",
-
+  ignore_alpha = 0.25,
+  animation = "popin 90%",
 })

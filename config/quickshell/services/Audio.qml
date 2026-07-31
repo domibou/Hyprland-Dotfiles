@@ -1,56 +1,36 @@
 pragma Singleton
 
 import Quickshell
-import Quickshell.Services.Pipewire
 import Quickshell.Io
+import Quickshell.Services.Pipewire
 
 Singleton {
-    id: audio
-
     readonly property var sink: Pipewire.defaultAudioSink
 
     readonly property bool ready: sink && sink.ready
     readonly property bool muted: ready && sink.audio.muted
-    readonly property int volume: ready ? Math.round(sink.audio.volume * 100) : 0
 
-    function increase(step = 2) {
-        volUp.command = [
-            "wpctl",
-            "set-volume",
-            "@DEFAULT_AUDIO_SINK@",
-            step + "%+"
-        ]
-        volUp.running = true
+    property var volume: ready ? sink.audio.volume : 0.0
+
+    function volumeUp(percent = 2) {
+        if (!ready) return
+
+        sink.audio.volume = Math.min(sink.audio.volume + percent/100, 1.0)
     }
 
-    function decrease(step = 2) {
-        volDown.command = [
-            "wpctl",
-            "set-volume",
-            "@DEFAULT_AUDIO_SINK@",
-            step + "%-"
-        ]
-        volDown.running = true
+    function volumeDown(percent = 2) {
+        if (!ready) return
+       
+       sink.audio.volume = Math.max(sink.audio.volume - percent/100, 0.0)
     }
 
     function toggleMute() {
-        mute.running = true
+        if (!ready) return
+        
+        sink.audio.muted = !sink.audio.muted        
     }
 
     PwObjectTracker {
-        objects: [audio.sink]
-    }
-
-    Process {
-        id: volUp
-    }
-
-    Process {
-        id: volDown
-    }
-
-    Process {
-        id: mute
-        command: ["wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle"]
+        objects: [sink]
     }
 }
