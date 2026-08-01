@@ -1,14 +1,11 @@
 import QtQuick
 
-import "../services"
 import "../"
+import "../../.."
+import "../../../services"
 
 
 Text {
-    id: content
-
-    anchors.centerIn: parent
-
     text: Time.time
     color: Colors.text
 
