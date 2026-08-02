@@ -8,7 +8,7 @@ import "components"
 
 
 Pill {
-    id: root
+    id: pill
 
     content:
         RowLayout {
@@ -29,7 +29,7 @@ Pill {
             Text {
                 color: Colors.text
 
-                text: Wifi.isWifiConnected ? (Wifi.displayStrength ? Wifi.signalStrength : Wifi.networkName) : ""
+                text: Wifi.isWifiConnected ? (Wifi.displayName ? Wifi.networkName : Wifi.signalStrength) : ""
 
                 font {
                     family: Config.textFontFamily
@@ -38,10 +38,6 @@ Pill {
                 }
             }
         }
-
-    HoverHandler {
-        id: hover
-    }
 
     TapHandler {
         onTapped: Wifi.toggleMode()

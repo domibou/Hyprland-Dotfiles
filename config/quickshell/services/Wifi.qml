@@ -11,7 +11,7 @@ Singleton {
 
     readonly property bool isWifiConnected: isWifiDevice && activeNetwork 
 
-    property bool displayStrength: false
+    property bool displayName: false
 
     readonly property var activeDevice: {
         for (const device of Networking.devices.values) {
@@ -32,6 +32,6 @@ Singleton {
     readonly property bool isWifiDevice: activeDevice && activeDevice.type === DeviceType.Wifi
 
     function toggleMode() {
-        displayStrength = !displayStrength
+        displayName = !displayName
     }
 }   

@@ -4,13 +4,14 @@ import Quickshell
 import QtQuick
 
 Singleton {
-    readonly property color background: '#353535'
-    readonly property color backgroundHover: '#1c2840'
+    readonly property color widget: '#353535'
+    readonly property color widgetHover: '#686868'
+    readonly property color widgetToggledOn: '#ffec90'
+    readonly property color widgetHoverToggledOn: '#fff5c1'
+    readonly property color widgetContainer: '#e01f1f1f'
 
-    readonly property color backgroundToggledOn: '#ffec90'
-    readonly property color backgroundHoverToggledOn: '#fff5c1'
-
-    readonly property color barColor: '#e01f1f1f'
+    readonly property color indicatorHigh: '#ff7b00'
+    readonly property color indicatorCritical: '#ff0000'
 
     readonly property color border: '#0e0e0e'
 

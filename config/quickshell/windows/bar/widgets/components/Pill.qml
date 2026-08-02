@@ -13,7 +13,7 @@ Rectangle {
 
     readonly property bool hovered: hoverHandler.hovered
 
-    property color colorDefault: hoverHandler.hovered ? Colors.backgroundHover : Colors.background
+    property color colorDefault: hoverHandler.hovered ? Colors.widgetHover : Colors.widget
     property var colorOverride: undefined
 
     property alias content: container.data

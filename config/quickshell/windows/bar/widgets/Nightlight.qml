@@ -13,10 +13,10 @@ Pill {
 
     colorOverride: Nightlight.active
         ? (hovered
-            ? Colors.backgroundHoverToggledOn
-            : Colors.backgroundToggledOn)
+            ? Colors.widgetHoverToggledOn
+            : Colors.widgetToggledOn)
         : undefined
-
+        
     content:
         RowLayout {
             anchors.centerIn: parent

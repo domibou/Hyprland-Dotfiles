@@ -34,6 +34,8 @@ Scope {
     }
 
     PanelWindow {    
+        id: bar
+
         screen: focusedScreen
         visible: showBar
 
@@ -61,10 +63,9 @@ Scope {
                 rightMargin: Config.barMargins
             }
 
-            // Rectangles encapsulated in fixed size Item elements, so that the RowLayout doesnt change proportions based on the varying sizes of the rectangles  
             Item {
                 Layout.fillWidth: true
-                Layout.fillHeight: true
+                Layout.fillHeight: true                
 
                 Rectangle {
                     implicitWidth: widgetGroup1.implicitWidth + 2 * Config.widgetMargin
@@ -76,7 +77,7 @@ Scope {
                     }
 
                     radius: Config.barHeight / 2
-                    color: Colors.barColor
+                    color: Colors.widgetContainer
 
                     RowLayout {
                         id: widgetGroup1
@@ -89,6 +90,7 @@ Scope {
                         spacing: Config.widgetSpacing
 
                         Nightlight {}
+                        Audio {}
                     }
                 }
             }
@@ -104,7 +106,7 @@ Scope {
                     anchors.centerIn: parent
 
                     radius: Config.barHeight / 2
-                    color: Colors.barColor
+                    color: Colors.widgetContainer
 
                     RowLayout {
                         id: widgetGroup2
@@ -135,7 +137,7 @@ Scope {
                     }
 
                     radius: Config.barHeight / 2
-                    color: Colors.barColor
+                    color: Colors.widgetContainer
 
                     RowLayout {
                         id: widgetGroup3
@@ -147,8 +149,8 @@ Scope {
 
                         spacing: Config.widgetSpacing
 
-                        Audio {}
                         Wifi {}
+                        Sensors {}
                     }
                 }
             }

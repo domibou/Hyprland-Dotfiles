@@ -7,7 +7,7 @@ import "../../../services"
 import "components"
 
 Pill {
-    id: root
+    id: pill
 
     content:
         RowLayout {
@@ -54,10 +54,6 @@ Pill {
                 }
             }
         }
-
-    HoverHandler {
-        id: hover
-    }
 
     TapHandler {
         onTapped: Audio.toggleMute()
