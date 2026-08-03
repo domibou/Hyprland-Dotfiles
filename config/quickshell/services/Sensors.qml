@@ -39,7 +39,7 @@ Singleton {
                     cpuTemp = data["coretemp-isa-0000"]["Package id 0"].temp1_input
                 } 
                 catch (e) {
-                    cpuTemp = undefined
+                    cpuTemp = NaN
                 }
             }
         }
@@ -55,7 +55,7 @@ Singleton {
                     gpuTemp = parseInt(text.trim())
                 }
                 catch (e) {
-                    gpuTemp = undefined
+                    gpuTemp = NaN
                 }
             }
         }

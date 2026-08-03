@@ -3,8 +3,9 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Hyprland
 
-import "../.."
 import "widgets"
+import "../.."
+import "../components"
 
 
 Scope {
@@ -45,7 +46,7 @@ Scope {
             right: true
         }
 
-        implicitHeight: Config.barMargins + Config.barHeight
+        implicitHeight: Config.gapsOut + Config.widgetContainerHeight
         color: 'transparent'
 
         HoverHandler {
@@ -58,68 +59,34 @@ Scope {
         RowLayout {
             anchors {
                 fill: parent
-                topMargin: Config.barMargins
-                leftMargin: Config.barMargins
-                rightMargin: Config.barMargins
+                topMargin: Config.gapsOut
+                leftMargin: Config.gapsOut
+                rightMargin: Config.gapsOut
             }
 
             Item {
                 Layout.fillWidth: true
-                Layout.fillHeight: true                
+                Layout.fillHeight: true           
 
-                Rectangle {
-                    implicitWidth: widgetGroup1.implicitWidth + 2 * Config.widgetMargin
-                    implicitHeight: Config.barHeight
-
+                WidgetContainer {
                     anchors {
                         left: parent.left
                         verticalCenter: parent.verticalCenter
                     }
 
-                    radius: Config.barHeight / 2
-                    color: Colors.widgetContainer
-
-                    RowLayout {
-                        id: widgetGroup1
-
-                        anchors {
-                            fill: parent
-                            margins: Config.widgetMargin
-                        }
-
-                        spacing: Config.widgetSpacing
-
-                        Nightlight {}
-                        Audio {}
-                    }
-                }
+                    Nightlight {}
+                    Audio {}
+                }     
             }
 
             Item {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
-                Rectangle {
-                    implicitWidth: widgetGroup2.implicitWidth + 2 * Config.widgetMargin
-                    implicitHeight: Config.barHeight
-
+                WidgetContainer {
                     anchors.centerIn: parent
 
-                    radius: Config.barHeight / 2
-                    color: Colors.widgetContainer
-
-                    RowLayout {
-                        id: widgetGroup2
-
-                        anchors {
-                            fill: parent
-                            margins: Config.widgetMargin
-                        }
-
-                        spacing: Config.widgetSpacing
-
-                        Time {}
-                    }
+                    Time {}
                 }
             }
 
@@ -127,31 +94,14 @@ Scope {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
-                Rectangle {
-                    implicitWidth: widgetGroup3.implicitWidth + 2 * Config.widgetMargin
-                    implicitHeight: Config.barHeight
-
+                WidgetContainer {
                     anchors {
                         right: parent.right
                         verticalCenter: parent.verticalCenter
                     }
 
-                    radius: Config.barHeight / 2
-                    color: Colors.widgetContainer
-
-                    RowLayout {
-                        id: widgetGroup3
-
-                        anchors {
-                            fill: parent
-                            margins: Config.widgetMargin
-                        }
-
-                        spacing: Config.widgetSpacing
-
-                        Wifi {}
-                        Sensors {}
-                    }
+                    Wifi {}
+                    Sensors {}
                 }
             }
         }

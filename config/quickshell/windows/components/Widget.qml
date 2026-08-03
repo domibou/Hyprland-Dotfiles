@@ -6,14 +6,15 @@ import "../../../.."
 
 Rectangle {
     implicitWidth: container.childrenRect.width + Config.widgetWidthPadding
-    implicitHeight: Config.barHeight - 2 * Config.widgetMargin
+    implicitHeight: Config.widgetContainerHeight - 2 * Config.widgetMargin
     radius: height / 2
 
     color: colorOverride ? colorOverride : colorDefault
 
     readonly property bool hovered: hoverHandler.hovered
 
-    property color colorDefault: hoverHandler.hovered ? Colors.widgetHover : Colors.widget
+    property bool clickable: false
+    property color colorDefault: clickable ? (hoverHandler.hovered ? Colors.widgetHover : Colors.widget) : Colors.widget
     property var colorOverride: undefined
 
     property alias content: container.data

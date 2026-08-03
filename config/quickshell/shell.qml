@@ -1,8 +1,8 @@
 import Quickshell
 import Quickshell.Hyprland
 
-import "windows"
 import "windows/bar"
+import "windows/volume"
 
 
 ShellRoot {

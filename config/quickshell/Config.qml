@@ -3,12 +3,14 @@ pragma Singleton
 import Quickshell
 
 Singleton {
-    // Should be the same as hyprland config option gaps_out from general.lua
-    readonly property int barMargins: 25 
-    readonly property int barHeight: 60
+    // Set to Hyprland config option gaps_out from general.lua
+    readonly property int gapsOut: 25
+
+    readonly property int widgetContainerMargins: gapsOut
+    readonly property int widgetContainerHeight: 60
     
     readonly property int widgetWidthPadding: 30
-    readonly property int widgetMargin: 10
+    readonly property int widgetMargin: 12
     readonly property int widgetHoverAnimationDuration: 75
     readonly property int widgetSpacing: 10
 

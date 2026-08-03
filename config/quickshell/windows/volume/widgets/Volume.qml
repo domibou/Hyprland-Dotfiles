@@ -8,13 +8,16 @@ import "../../components"
 
 
 Widget {
-    clickable: true
+    id: widget
+
+    clickable: false
 
     content:
         RowLayout {
             id: layout
 
             anchors.centerIn: parent
+
             spacing: Config.iconSpacing
 
             property int volumePercent: Math.round(Audio.volume * 100)
@@ -39,26 +42,35 @@ Widget {
                 color: Colors.text
             }
 
-            Text {
-                text: {
-                    if (!Audio.ready) return "-"
-                    if (Audio.muted) return "Muted"
-                    return layout.volumePercent + "%"
-                }
+            Rectangle {
+                id: groove 
 
-                font {
-                    family: Config.textFontFamily
-                    pixelSize: Config.textSize
-                    weight: Config.textWeight
-                }
+                implicitWidth: 400
+                implicitHeight: widget.implicitHeight - 2 * Config.widgetMargin
+                radius: height / 2
 
-                color: Colors.text
+                color: Colors.widgetContainer
+
+                Rectangle {
+                    id: sliderTail
+
+                    y: groove.mapToItem(parent, 0, 0).y
+
+                    implicitWidth: Audio.volume * groove.implicitWidth
+                    implicitHeight: widget.implicitHeight - 2 * Config.widgetMargin
+                    radius: height / 2
+
+                    color: '#aaaaaa'
+
+                    Behavior on implicitWidth {
+                        NumberAnimation {
+                            duration: 400
+                            easing.type: Easing.OutCubic
+                        }
+                    }
+                }
             }
         }
-
-    TapHandler {
-        onTapped: Audio.toggleMute()
-    }
 
     MouseArea {
         anchors.fill: parent

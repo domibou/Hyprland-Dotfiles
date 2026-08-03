@@ -4,11 +4,11 @@ import QtQuick.Layouts
 import "../"
 import "../../.."
 import "../../../services"
-import "components"
+import "../../components"
 
 
-Pill {
-    id: pill
+Widget {
+    clickable: true
 
     content:
         RowLayout {

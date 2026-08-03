@@ -5,11 +5,11 @@ import QtQuick.Layouts
 import "../"
 import "../../.."
 import "../../../services"
-import "components"
+import "../../components"
 
 
-Pill {
-    property int temp: Nightlight.defaultTemp
+Widget {
+    clickable: true
 
     colorOverride: Nightlight.active
         ? (hovered
