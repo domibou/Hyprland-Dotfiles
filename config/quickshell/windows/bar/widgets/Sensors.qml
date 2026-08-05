@@ -7,83 +7,71 @@ import "../../../services"
 import "../../components"
 
 
-Widget {
-    content:
-        RowLayout {
-            id: layout
+DoubleWidget {
+    id: root
 
-            anchors.centerIn: parent
-            spacing: Config.iconSpacing
+    property color cpuColorIndicator: {
+        if (isNaN(Sensors.cpuTemp))
+            return Colors.sensors
 
-            property color cpuColorIndicator: {
-                if (isNaN(Sensors.cpuTemp))
-                    return Colors.text
+        if (Sensors.cpuTempCritical)
+            return Colors.indicatorCritical
 
-                if (Sensors.cpuTempCritical)
-                    return Colors.indicatorCritical
+        if (Sensors.cpuTempHigh)
+            return Colors.indicatorHigh
 
-                if (Sensors.cpuTempHigh)
-                    return Colors.indicatorHigh
+        return Colors.sensors
+    }
 
-                return Colors.text
-            }
+    property color gpuColorIndicator: {
+        if (isNaN(Sensors.gpuTemp))
+            return Colors.sensors
 
-            property color gpuColorIndicator: {
-                if (isNaN(Sensors.gpuTemp))
-                    return Colors.text
+        if (Sensors.gpuTempCritical)
+            return Colors.indicatorCritical
 
-                if (Sensors.gpuTempCritical)
-                    return Colors.indicatorCritical
+        if (Sensors.gpuTempHigh)
+            return Colors.indicatorHigh
 
-                if (Sensors.gpuTempHigh)
-                    return Colors.indicatorHigh
+        return Colors.sensors
+    }
+            
+    leftContent: RowLayout {
+        spacing: Config.iconSpacing
 
-                return Colors.text
-            }
+        Text {
+            text: ""
 
-            Text {
-                text: ""
+            color: Colors.sensors
 
-                color: Colors.text
-
-                font {
-                    family: Config.textFontFamily
-                    pixelSize: Config.iconSize
-                }
-            }
-
-            Text {
-                text: "CPU " + (isNaN(Sensors.cpuTemp) ? "-" : `${Sensors.cpuTemp}°C`)
-
-                color: layout.cpuColorIndicator
-
-                font {
-                    family: Config.textFontFamily
-                    pixelSize: Config.textSize
-                    weight: Config.textWeight
-                }
-            }
-
-            Rectangle {
-                implicitWidth: 2
-                implicitHeight: parent.height * 0.6
-
-                color: Colors.widgetContainer
-
-                Layout.topMargin: 4
-                Layout.bottomMargin: 4
-            }
-
-            Text {
-                text: "GPU " + (isNaN(Sensors.gpuTemp) ? "-" : `${Sensors.gpuTemp}°C`)
-
-                color: layout.gpuColorIndicator
-
-                font {
-                    family: Config.textFontFamily
-                    pixelSize: Config.textSize
-                    weight: Config.textWeight
-                }
+            font {
+                family: Config.textFontFamily
+                pixelSize: Config.iconSize
             }
         }
+
+        Text {
+            text: "CPU " + (isNaN(Sensors.cpuTemp) ? "-" : `${Sensors.cpuTemp}°C`)
+
+            color: root.cpuColorIndicator
+
+            font {
+                family: Config.textFontFamily
+                pixelSize: Config.textSize
+                weight: Config.textWeight
+            }
+        }
+    }
+
+    rightContent: Text {
+        text: "GPU " + (isNaN(Sensors.gpuTemp) ? "-" : `${Sensors.gpuTemp}°C`)
+
+        color: root.gpuColorIndicator
+
+        font {
+            family: Config.textFontFamily
+            pixelSize: Config.textSize
+            weight: Config.textWeight
+        }
+    }
 }

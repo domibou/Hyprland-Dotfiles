@@ -2,13 +2,10 @@ pragma Singleton
 
 import Quickshell
 import Quickshell.Io
-import Quickshell.Services.Pipewire
 import QtQml
 
 
 Singleton {
-    readonly property var sink: Pipewire.defaultAudioSink
-
     property real cpuTemp: NaN
     readonly property bool cpuTempHigh: cpuTemp >= 80 && !cpuTempCritical
     readonly property bool cpuTempCritical: cpuTemp >= 100

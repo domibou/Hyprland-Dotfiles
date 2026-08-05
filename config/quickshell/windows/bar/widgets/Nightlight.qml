@@ -17,36 +17,34 @@ Widget {
             : Colors.widgetToggledOn)
         : undefined
         
-    content:
-        RowLayout {
-            anchors.centerIn: parent
-            spacing: Config.iconSpacing
+    content:RowLayout {            
+        spacing: Config.iconSpacing
 
-            Text {
-                text: "󰖔"
+        Text {
+            text: "󰖔"
 
-                color: Nightlight.active ? Colors.textAgainstToggledOn : Colors.text
+            color: Nightlight.active ? Colors.textAgainstToggledOn : Colors.nightLight
 
-                font {
-                    family: Config.textFontFamily
-                    pixelSize: Config.iconSize
-                }
-            }
-
-            Text {
-                visible: Nightlight.active
-
-                text: Nightlight.active ? Nightlight.temp + "K" : ""  
-                
-                color: Nightlight.active ? Colors.textAgainstToggledOn : Colors.text          
-
-                font {
-                    family: Config.textFontFamily
-                    pixelSize: Config.textSize
-                    weight: Config.textWeight
-                }
+            font {
+                family: Config.textFontFamily
+                pixelSize: Config.iconSize
             }
         }
+
+        Text {
+            visible: Nightlight.active
+
+            text: Nightlight.active ? Nightlight.temp + "K" : ""  
+            
+            color: Nightlight.active ? Colors.textAgainstToggledOn : Colors.text          
+
+            font {
+                family: Config.textFontFamily
+                pixelSize: Config.textSize
+                weight: Config.textWeight
+            }
+        }
+    }
 
     TapHandler {
         onTapped: Nightlight.toggle()

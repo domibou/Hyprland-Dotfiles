@@ -64,20 +64,20 @@ Scope {
                 rightMargin: Config.gapsOut
             }
 
-            Item {
-                Layout.fillWidth: true
-                Layout.fillHeight: true           
+             Item {
+                 Layout.fillWidth: true
+                 Layout.fillHeight: true           
 
-                WidgetContainer {
-                    anchors {
-                        left: parent.left
-                        verticalCenter: parent.verticalCenter
-                    }
+                 WidgetContainer {
+                     anchors {
+                         left: parent.left
+                         verticalCenter: parent.verticalCenter
+                     }
 
-                    Nightlight {}
-                    Audio {}
-                }     
-            }
+                     Nightlight {}
+                     Audio {}
+                 }     
+             }
 
             Item {
                 Layout.fillWidth: true
@@ -86,7 +86,7 @@ Scope {
                 WidgetContainer {
                     anchors.centerIn: parent
 
-                    Time {}
+                    DateTime {}
                 }
             }
 
@@ -102,6 +102,7 @@ Scope {
 
                     Wifi {}
                     Sensors {}
+                    Weather {}
                 }
             }
         }

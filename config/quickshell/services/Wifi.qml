@@ -1,7 +1,6 @@
 pragma Singleton
 
 import Quickshell
-import Quickshell.Io
 import Quickshell.Networking
 
 Singleton {
@@ -11,7 +10,7 @@ Singleton {
 
     readonly property bool isWifiConnected: isWifiDevice && activeNetwork 
 
-    property bool displayName: false
+    readonly property bool isWifiDevice: activeDevice && activeDevice.type === DeviceType.Wifi
 
     readonly property var activeDevice: {
         for (const device of Networking.devices.values) {
@@ -27,11 +26,5 @@ Singleton {
             if (network.connected) return network
         }
         return null
-    }
-
-    readonly property bool isWifiDevice: activeDevice && activeDevice.type === DeviceType.Wifi
-
-    function toggleMode() {
-        displayName = !displayName
     }
 }   

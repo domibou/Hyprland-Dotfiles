@@ -1,7 +1,6 @@
 pragma Singleton
 
 import Quickshell
-import Quickshell.Io
 import Quickshell.Services.Pipewire
 import QtQml
 
@@ -50,7 +49,7 @@ Singleton {
 
     Timer {
         id: volumePanelVisibleTimer
-        interval: 1000
+        interval: 1200
         repeat: false
 
         onTriggered: volumePanelVisible = false

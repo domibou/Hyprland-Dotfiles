@@ -7,39 +7,42 @@ import "../../../services"
 import "../../components"
 
 
-Widget {
-    clickable: true
+DoubleWidget {
+    leftContent: RowLayout {
+        spacing: Config.iconSpacing
 
-    content:
-        RowLayout {
-            anchors.centerIn: parent
-            spacing: Config.iconSpacing
+        Text {
+            text: Wifi.isWifiConnected ? "󰖩" : "󱚼"
 
-            Text {
-                color: Colors.text
+            color: Colors.wifi
 
-                text: Wifi.isWifiConnected ? "󰖩" : "󱚼"
-
-                font {
-                    family: Config.textFontFamily
-                    pixelSize: Config.iconSize
-                }
-            }
-
-            Text {
-                color: Colors.text
-
-                text: Wifi.isWifiConnected ? (Wifi.displayName ? Wifi.networkName : Wifi.signalStrength) : ""
-
-                font {
-                    family: Config.textFontFamily
-                    pixelSize: Config.textSize
-                    weight: Config.textWeight
-                }
+            font {
+                family: Config.textFontFamily
+                pixelSize: Config.iconSize
             }
         }
 
-    TapHandler {
-        onTapped: Wifi.toggleMode()
+        Text {
+            text: Wifi.isWifiConnected ? Wifi.signalStrength : "-"
+
+            color: Colors.wifi
+
+            font {
+                family: Config.textFontFamily
+                pixelSize: Config.textSize
+                weight: Config.textWeight
+            }
+        }
+    }
+    rightContent: Text {
+        text: Wifi.isWifiConnected ? Wifi.networkName : "-"
+
+        color: Colors.wifi
+
+        font {
+                family: Config.textFontFamily
+                pixelSize: Config.textSize
+                weight: Config.textWeight
+        }
     }
 }

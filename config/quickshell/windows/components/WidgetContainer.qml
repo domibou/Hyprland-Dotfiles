@@ -3,10 +3,10 @@ import QtQuick.Layouts
 import "../.."
 
 Rectangle {
-    implicitWidth: layout.implicitWidth + 2 * Config.widgetMargin
+    implicitWidth: layout.implicitWidth + Config.widgetMargin * 2
     implicitHeight: Config.widgetContainerHeight
 
-    radius: Config.widgetContainerHeight / 2
+    radius: Config.widgetContainerRadius
     color: Colors.widgetContainer
 
     default property alias content: layout.data
@@ -15,10 +15,9 @@ Rectangle {
         id: layout
 
         anchors {
-            fill: parent
-            margins: Config.widgetMargin
+            centerIn: parent
         }
 
-        spacing: Config.widgetSpacing
+        spacing: Config.widgetMargin
     }
 }

@@ -47,7 +47,7 @@ scrollbar {
 /* ---------- Main Window ---------- */
 
 .box-wrapper {
-    background: alpha(@surface, 0.6);
+    background: alpha(@surface, 0.85);
     border-radius: 25px;
     padding: 25px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.95);
@@ -67,7 +67,7 @@ scrollbar {
 .search-container {
     background: transparent;
     border: 2px solid @outline;
-    border-radius: 12px;
+    border-radius: 30px;
     font-family: "JetBrainsMono Nerd Font";
     font-size: 20px;
 }
@@ -97,7 +97,7 @@ child {
 .item-box {
     background: transparent;
     color: @on_surface;
-    border-radius: 12px;
+    border-radius: 30px;
     padding: 12px;
 }
 

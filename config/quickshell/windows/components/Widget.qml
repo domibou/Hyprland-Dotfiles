@@ -1,14 +1,13 @@
 import QtQuick
 
 import "../.."
-import "../../../.."
 
 
 Rectangle {
-    implicitWidth: container.childrenRect.width + Config.widgetWidthPadding
-    implicitHeight: Config.widgetContainerHeight - 2 * Config.widgetMargin
-    radius: height / 2
-
+    implicitWidth: dataContainer.implicitWidth + Config.widgetWidthPadding
+    implicitHeight: Config.widgetContainerHeight - Config.widgetMargin * 2
+    
+    radius: Config.widgetRadius
     color: colorOverride ? colorOverride : colorDefault
 
     readonly property bool hovered: hoverHandler.hovered
@@ -17,10 +16,14 @@ Rectangle {
     property color colorDefault: clickable ? (hoverHandler.hovered ? Colors.widgetHover : Colors.widget) : Colors.widget
     property var colorOverride: undefined
 
-    property alias content: container.data
+    property alias content: dataContainer.data
 
     Item {
-        id: container
+        id: dataContainer
+
+        implicitWidth: childrenRect.width
+        implicitHeight: childrenRect.height
+
         anchors.centerIn: parent
     }
 

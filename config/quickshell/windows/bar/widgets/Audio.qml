@@ -10,51 +10,49 @@ import "../../components"
 Widget {
     clickable: true
 
-    content:
-        RowLayout {
-            id: layout
+    content: RowLayout {
+        id: layout
 
-            anchors.centerIn: parent
-            spacing: Config.iconSpacing
+        spacing: Config.iconSpacing
 
-            property int volumePercent: Math.round(Audio.volume * 100)
+        property int volumePercent: Math.round(Audio.volume * 100)
 
-            Text {
-                text: {
-                    if (!Audio.ready) return String.fromCodePoint(0xF0581)
-                    if (Audio.muted) return "󰸈"
+        Text {
+            text: {
+                if (!Audio.ready) return String.fromCodePoint(0xF0581)
+                if (Audio.muted) return "󰸈"
 
-                    if (layout.volumePercent === 0) return String.fromCodePoint(0xF0581)
-                    if (layout.volumePercent < 34) return String.fromCodePoint(0xF057F)
-                    if (layout.volumePercent < 67) return String.fromCodePoint(0xF0580)
+                if (layout.volumePercent === 0) return String.fromCodePoint(0xF0581)
+                if (layout.volumePercent < 34) return String.fromCodePoint(0xF057F)
+                if (layout.volumePercent < 67) return String.fromCodePoint(0xF0580)
 
-                    return String.fromCodePoint(0xF057E)
-                }
-
-                font {
-                    family: Config.textFontFamily
-                    pixelSize: Config.iconSize
-                }
-
-                color: Colors.text
+                return String.fromCodePoint(0xF057E)
             }
 
-            Text {
-                text: {
-                    if (!Audio.ready) return "-"
-                    if (Audio.muted) return "Muted"
-                    return layout.volumePercent + "%"
-                }
-
-                font {
-                    family: Config.textFontFamily
-                    pixelSize: Config.textSize
-                    weight: Config.textWeight
-                }
-
-                color: Colors.text
+            font {
+                family: Config.textFontFamily
+                pixelSize: Config.iconSize
             }
+
+            color: Colors.audio
         }
+
+        Text {
+            text: {
+                if (!Audio.ready) return "-"
+                if (Audio.muted) return "Muted"
+                return layout.volumePercent + "%"
+            }
+
+            font {
+                family: Config.textFontFamily
+                pixelSize: Config.textSize
+                weight: Config.textWeight
+            }
+
+            color: Colors.audio
+        }
+    }
 
     TapHandler {
         onTapped: Audio.toggleMute()
