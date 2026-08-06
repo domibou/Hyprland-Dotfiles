@@ -11,35 +11,31 @@ Widget {
     id: widget
 
     content: RowLayout {
-        id: layout
-
         spacing: Config.iconSpacing
-
-        property int volumePercent: Math.round(Audio.volume * 100)
 
         Text {
             text: {
                 if (!Audio.ready) return String.fromCodePoint(0xF0581)
                 if (Audio.muted) return "󰸈"
 
-                if (layout.volumePercent === 0) return String.fromCodePoint(0xF0581)
-                if (layout.volumePercent < 34) return String.fromCodePoint(0xF057F)
-                if (layout.volumePercent < 67) return String.fromCodePoint(0xF0580)
+                if (Audio.noVolume) return String.fromCodePoint(0xF0581)
+                if (Audio.isLowVolume) return String.fromCodePoint(0xF057F)
+                if (Audio.isMediumVolume) return String.fromCodePoint(0xF0580)
 
                 return String.fromCodePoint(0xF057E)
             }
 
             font {
                 family: Config.textFontFamily
-                pixelSize: Config.iconSize
+                pixelSize: Config.iconSize * 0.72
             }
 
             color: Colors.volume
         }
 
         Rectangle {
-            implicitWidth: 400
-            implicitHeight: widget.implicitHeight - Config.widgetMargin * 2
+            implicitWidth: Config.volumeBarWidth
+            implicitHeight: Config.volumeBarHeight
 
             radius: Config.volumeProgressBarRadius
 
@@ -49,7 +45,7 @@ Widget {
                 y: parent.mapToItem(parent, 0, 0).y
 
                 implicitWidth: Audio.volume * parent.implicitWidth
-                implicitHeight: widget.implicitHeight - Config.widgetMargin * 2
+                implicitHeight: parent.implicitHeight
 
                 radius: Config.volumeProgressBarRadius
 

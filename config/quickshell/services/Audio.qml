@@ -14,6 +14,11 @@ Singleton {
 
     readonly property var volume: ready ? sink.audio.volume : 0.0
 
+    readonly property bool noVolume: volume === 0.0
+    readonly property bool isHighVolume: volume > 0.67
+    readonly property bool isMediumVolume: volume > 0.34  && !isHighVolume
+    readonly property bool isLowVolume: volume > 0.0 && !isMediumVolume && !isHighVolume
+
     property bool volumePanelVisible: false
 
     function volumeUp(percent = 2) {

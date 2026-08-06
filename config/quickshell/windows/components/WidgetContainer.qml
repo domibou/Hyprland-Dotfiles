@@ -4,10 +4,10 @@ import "../.."
 
 Rectangle {
     implicitWidth: layout.implicitWidth + Config.widgetMargin * 2
-    implicitHeight: Config.widgetContainerHeight
+    implicitHeight: layout.implicitHeight + Config.widgetMargin * 2
 
     radius: Config.widgetContainerRadius
-    color: Colors.widgetContainer
+    color: Config.showWidgetContainer ? Colors.widgetContainer : "transparent"
 
     default property alias content: layout.data
 
@@ -18,6 +18,6 @@ Rectangle {
             centerIn: parent
         }
 
-        spacing: Config.widgetMargin
+        spacing: Math.max(Config.widgetMargin, Config.widgetSpacingMin)
     }
 }

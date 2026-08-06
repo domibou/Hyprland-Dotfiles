@@ -10,6 +10,8 @@ hl.bind(main .. " + SPACE", hl.dsp.exec_cmd(programs.launcher))
 hl.bind(main .. " + W", hl.dsp.exec_cmd(programs.browser))
 hl.bind("SUPER + L", hl.dsp.exec_cmd(programs.lockScreen))
 hl.bind(second .. " + W", hl.dsp.exec_cmd(programs.wallpaper))
+hl.bind("Print", hl.dsp.exec_cmd(programs.screenshot))
+
 
 --Close tile
 hl.bind(main .. " + Q", hl.dsp.window.close())

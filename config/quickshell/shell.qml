@@ -1,19 +1,21 @@
 import Quickshell
-import Quickshell.Hyprland
+import QtQuick
+import QtQuick.Layouts
 
 import "windows/bar"
 import "windows/volume"
-
+import "windows/launcher"
 
 ShellRoot {
-    id: root
+  Variants {
+    model: Quickshell.screens
 
-    readonly property var focusedScreen: {
-        const name = Hyprland.focusedMonitor?.name
-        return Quickshell.screens.find(s => s.name === name)
-            ?? (Quickshell.screens.length > 0 ? Quickshell.screens[0] : null)
+    Bar{
+      property var modelData
+      screen: modelData
     }
+  }
 
-    Bar { focusedScreen: root.focusedScreen }
-    Volume { focusedScreen: root.focusedScreen }
+  Volume {}
+  Launcher {}
 }

@@ -20,5 +20,9 @@ hyprlauncher
 hypridle
 ddcutil
 
+grim
+slurp
+swappy
+
 quickshell
 hyprsunset

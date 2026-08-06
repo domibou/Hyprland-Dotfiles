@@ -6,7 +6,7 @@ import "../.."
 
 Rectangle {
     implicitWidth: dataContainer.implicitWidth + Config.widgetWidthPadding
-    implicitHeight: Config.widgetContainerHeight - Config.widgetMargin * 2
+    implicitHeight: dataContainer.implicitHeight + Config.widgetHeightPadding
 
     radius: Config.widgetRadius
 

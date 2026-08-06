@@ -1,21 +1,21 @@
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
-import Quickshell.Hyprland
 
 import "widgets"
 import "../.."
 import "../components"
 
-
 Scope {
-    property var focusedScreen: undefined 
+    id: root
 
+    required property var screen
     property bool showBar: false
 
     PanelWindow {
-        screen: focusedScreen
-        visible: !showBar
+        screen: root.screen
+
+        visible: !root.showBar
 
         anchors {
             top: true
@@ -23,22 +23,22 @@ Scope {
             right: true
         }
 
-        implicitHeight: 1
+        implicitHeight: 0
+
         color: "transparent"
 
         MouseArea {
             anchors.fill: parent
             hoverEnabled: true
 
-            onEntered: showBar = true
+            onEntered: root.showBar = true
         }
     }
 
-    PanelWindow {    
-        id: bar
+    PanelWindow {
+        screen: root.screen
 
-        screen: focusedScreen
-        visible: showBar
+        visible: root.showBar
 
         anchors {
             top: true
@@ -46,44 +46,57 @@ Scope {
             right: true
         }
 
-        implicitHeight: Config.gapsOut + Config.widgetContainerHeight
-        color: 'transparent'
+        implicitHeight: Config.gapsOut + layout.implicitHeight
+        
+        color: "transparent"
 
         HoverHandler {
-            id: hoverHandler
             onHoveredChanged: {
-                if (!hovered) showBar = false
+                if (!hovered)
+                    root.showBar = false
             }
         }
 
         RowLayout {
+            id: layout
+            
             anchors {
-                fill: parent
-                topMargin: Config.gapsOut
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+                
                 leftMargin: Config.gapsOut
                 rightMargin: Config.gapsOut
             }
-
-             Item {
-                 Layout.fillWidth: true
-                 Layout.fillHeight: true           
-
-                 WidgetContainer {
-                     anchors {
-                         left: parent.left
-                         verticalCenter: parent.verticalCenter
-                     }
-
-                     Nightlight {}
-                     Audio {}
-                 }     
-             }
 
             Item {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
+                implicitHeight: widgetGroup1.implicitHeight
+
                 WidgetContainer {
+                    id: widgetGroup1
+
+                    anchors {
+                        left: parent.left
+                        verticalCenter: parent.verticalCenter
+                    }
+
+                    Nightlight {}
+                    Audio {}
+                }
+            }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                implicitHeight: widgetGroup2.implicitHeight
+
+                WidgetContainer {
+                    id: widgetGroup2
+
                     anchors.centerIn: parent
 
                     DateTime {}
@@ -94,7 +107,11 @@ Scope {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
+                implicitHeight: widgetGroup3.implicitHeight
+
                 WidgetContainer {
+                    id: widgetGroup3
+
                     anchors {
                         right: parent.right
                         verticalCenter: parent.verticalCenter

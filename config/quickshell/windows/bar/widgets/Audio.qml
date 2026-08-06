@@ -22,9 +22,9 @@ Widget {
                 if (!Audio.ready) return String.fromCodePoint(0xF0581)
                 if (Audio.muted) return "󰸈"
 
-                if (layout.volumePercent === 0) return String.fromCodePoint(0xF0581)
-                if (layout.volumePercent < 34) return String.fromCodePoint(0xF057F)
-                if (layout.volumePercent < 67) return String.fromCodePoint(0xF0580)
+                if (Audio.noVolume) return String.fromCodePoint(0xF0581)
+                if (Audio.isLowVolume) return String.fromCodePoint(0xF057F)
+                if (Audio.isMediumVolume) return String.fromCodePoint(0xF0580)
 
                 return String.fromCodePoint(0xF057E)
             }
