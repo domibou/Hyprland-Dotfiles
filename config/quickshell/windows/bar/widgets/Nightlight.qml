@@ -36,7 +36,7 @@ Widget {
 
             text: Nightlight.active ? Nightlight.temp + "K" : ""  
             
-            color: Nightlight.active ? Colors.textAgainstToggledOn : Colors.text          
+            color: Nightlight.active ? Colors.textAgainstToggledOn : Colors.blacks          
 
             font {
                 family: Config.textFontFamily

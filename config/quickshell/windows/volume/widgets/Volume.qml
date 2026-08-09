@@ -39,7 +39,7 @@ Widget {
 
             radius: Config.volumeProgressBarRadius
 
-            color: Colors.widgetContainer
+            color: Colors.black
 
             Rectangle {
                 y: parent.mapToItem(parent, 0, 0).y
@@ -58,17 +58,6 @@ Widget {
                     }
                 }
             }
-        }
-    }
-
-    MouseArea {
-        anchors.fill: parent
-        acceptedButtons: Qt.NoButton
-        hoverEnabled: false
-
-        onWheel: (event) => {
-            if (event.angleDelta.y > 0) Audio.volumeUp()
-            else if (event.angleDelta.y < 0) Audio.volumeDown()
         }
     }
 }

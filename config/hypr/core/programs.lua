@@ -1,7 +1,7 @@
 local programs = {
     terminal = "kitty",
     fileManager = "kitty -e yazi",
-    launcher = "walker --provider desktopapplications --theme launcher",
+    launcher = "qs ipc call launcher open",
     browser = "brave",
     wallpaper = "bash ~/.dotfiles/scripts/wallpaper.sh",
     lockScreen = "hyprlock",

@@ -11,13 +11,13 @@ Singleton {
     readonly property int widgetWidthPadding: 30
     readonly property int widgetHeightPadding: widgetWidthPadding * 0.15
 
-    readonly property int widgetMargin: 8 // condition to enforce in the config settings --> showWidgetContainer ? > Math.max(theValue, widgetSpacingMin) : 0
+    readonly property int widgetMargins: 8 // condition to enforce in the config settings --> showWidgetContainer ? > Math.max(theValue, widgetSpacingMin) : 0
     readonly property int widgetSpacingMin: 8
 
-    readonly property int widgetRadius: 30
+    readonly property int widgetRadius: 40
     readonly property int widgetContainerRadius: widgetRadius * 1.8
 
-    readonly property bool showWidgetContainer: true
+    readonly property bool showWidgetContainer: false
 
     readonly property int widgetHoverAnimationDuration: 75
 
@@ -27,8 +27,16 @@ Singleton {
 
     readonly property int textSize: 20
     readonly property int textWeight: 500
-    readonly property string textFontFamily: "JetBrainsMono Nerd Font"
+    readonly property string textFontFamily: "JetBrainsMono"
 
     readonly property int iconSize: 30
     readonly property int iconSpacing: 10
+
+    readonly property int imageIconSize: 50
+
+    readonly property int windowMargins: 40
+    readonly property int windowRadius: 40
+    readonly property int windowShadowMargins: 30
+
+    readonly property int launcherMargins: 20
 }

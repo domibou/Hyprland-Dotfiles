@@ -5,6 +5,7 @@ import QtQuick.Layouts
 import "windows/bar"
 import "windows/volume"
 import "windows/launcher"
+import "ipc"
 
 ShellRoot {
   Variants {
@@ -17,5 +18,8 @@ ShellRoot {
   }
 
   Volume {}
-  Launcher {}
+
+  Launcher { id: launcher }
+  LauncherIpc { launcherLoader: launcher }
+
 }

@@ -8,7 +8,6 @@ DOTFILES="$HOME/.dotfiles"
 
 mkdir -p "$CONFIG_DIR"
 
-# Create/update ~/.dotfiles
 ln -sfn "$REPO_DIR" "$DOTFILES"
 
 configs=(
@@ -18,7 +17,6 @@ configs=(
     matugen
     yazi
     hyprlock
-    walker
 )
 
 for config in "${configs[@]}"; do

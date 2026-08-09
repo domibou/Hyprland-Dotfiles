@@ -8,8 +8,9 @@ import "../../services"
 
 PanelWindow {
     exclusiveZone: 0
+    mask: Region {}
 
-    visible: Audio.volumePanelVisible || hoverHandler.hovered
+    visible: Audio.volumePanelVisible
     
     color: "transparent"
 
@@ -26,9 +27,5 @@ PanelWindow {
         }
         
         Volume {}
-    }
-    
-    HoverHandler {
-        id: hoverHandler
     }
 }
