@@ -11,26 +11,26 @@ DoubleWidget {
     id: root
 
     property color cpuColorIndicator: {
-        if (isNaN(Sensors.cpuTemp))
+        if (isNaN(SensorsService.cpuTemp))
             return Colors.sensors
 
-        if (Sensors.cpuTempCritical)
+        if (SensorsService.cpuTempCritical)
             return Colors.indicatorCritical
 
-        if (Sensors.cpuTempHigh)
+        if (SensorsService.cpuTempHigh)
             return Colors.indicatorHigh
 
         return Colors.sensors
     }
 
     property color gpuColorIndicator: {
-        if (isNaN(Sensors.gpuTemp))
+        if (isNaN(SensorsService.gpuTemp))
             return Colors.sensors
 
-        if (Sensors.gpuTempCritical)
+        if (SensorsService.gpuTempCritical)
             return Colors.indicatorCritical
 
-        if (Sensors.gpuTempHigh)
+        if (SensorsService.gpuTempHigh)
             return Colors.indicatorHigh
 
         return Colors.sensors
@@ -51,7 +51,7 @@ DoubleWidget {
         }
 
         Text {
-            text: "CPU " + (isNaN(Sensors.cpuTemp) ? "-" : `${Sensors.cpuTemp}°C`)
+            text: "CPU " + (isNaN(SensorsService.cpuTemp) ? "-" : `${SensorsService.cpuTemp}°C`)
 
             color: root.cpuColorIndicator
 
@@ -64,7 +64,7 @@ DoubleWidget {
     }
 
     rightContent: Text {
-        text: "GPU " + (isNaN(Sensors.gpuTemp) ? "-" : `${Sensors.gpuTemp}°C`)
+        text: "GPU " + (isNaN(SensorsService.gpuTemp) ? "-" : `${SensorsService.gpuTemp}°C`)
 
         color: root.gpuColorIndicator
 

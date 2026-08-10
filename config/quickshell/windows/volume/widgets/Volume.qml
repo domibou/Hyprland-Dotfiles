@@ -15,12 +15,12 @@ Widget {
 
         Text {
             text: {
-                if (!Audio.ready) return String.fromCodePoint(0xF0581)
-                if (Audio.muted) return "󰸈"
+                if (!AudioService.ready) return String.fromCodePoint(0xF0581)
+                if (AudioService.muted) return "󰸈"
 
-                if (Audio.noVolume) return String.fromCodePoint(0xF0581)
-                if (Audio.isLowVolume) return String.fromCodePoint(0xF057F)
-                if (Audio.isMediumVolume) return String.fromCodePoint(0xF0580)
+                if (AudioService.noVolume) return String.fromCodePoint(0xF0581)
+                if (AudioService.isLowVolume) return String.fromCodePoint(0xF057F)
+                if (AudioService.isMediumVolume) return String.fromCodePoint(0xF0580)
 
                 return String.fromCodePoint(0xF057E)
             }
@@ -44,7 +44,7 @@ Widget {
             Rectangle {
                 y: parent.mapToItem(parent, 0, 0).y
 
-                implicitWidth: Audio.volume * parent.implicitWidth
+                implicitWidth: AudioService.volume * parent.implicitWidth
                 implicitHeight: parent.implicitHeight
 
                 radius: Config.volumeProgressBarRadius

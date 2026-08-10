@@ -10,13 +10,13 @@ PanelWindow {
     exclusiveZone: 0
     mask: Region {}
 
-    visible: Audio.volumePanelVisible
+    visible: AudioService.volumePanelVisible
     
     color: "transparent"
 
     anchors { bottom: true }
 
-    implicitHeight: volumeBar.implicitHeight + Config.gapsOut * 0.5
+    implicitHeight: volumeBar.implicitHeight + Config.gapsOut * 0.2
     implicitWidth: volumeBar.implicitWidth
 
     WidgetContainer {

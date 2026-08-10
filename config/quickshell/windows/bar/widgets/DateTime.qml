@@ -23,7 +23,7 @@ DoubleWidget {
         }
 
         Text {
-            text: DateTime.time
+            text: DateTimeService.time
 
             color: Colors.dateTime
 
@@ -36,7 +36,7 @@ DoubleWidget {
     }
 
     rightContent: Text {
-        text: DateTime.date
+        text: DateTimeService.date
 
         color: Colors.dateTime
 

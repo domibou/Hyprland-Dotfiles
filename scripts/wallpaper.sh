@@ -5,9 +5,7 @@ set -euo pipefail
 DIR="$HOME/.dotfiles/wallpapers"
 
 IMAGE=$(
-    fd -e jpg -e jpeg -e png -e webp -e avif . "$DIR" \
-        -x basename \
-    | walker --dmenu --provider menus:wallpapers --theme wallpaper
+    fd -e jpg -e jpeg -e png -e webp -e avif . "$DIR" -x basename | walker --dmenu --provider menus:wallpapers --theme wallpaper
 )
 
 [[ -z "$IMAGE" ]] && exit 0

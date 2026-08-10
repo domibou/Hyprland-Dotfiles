@@ -15,16 +15,16 @@ Widget {
 
         spacing: Config.iconSpacing
 
-        property int volumePercent: Math.round(Audio.volume * 100)
+        property int volumePercent: Math.round(AudioService.volume * 100)
 
         Text {
             text: {
-                if (!Audio.ready) return String.fromCodePoint(0xF0581)
-                if (Audio.muted) return "󰸈"
+                if (!AudioService.ready) return String.fromCodePoint(0xF0581)
+                if (AudioService.muted) return "󰸈"
 
-                if (Audio.noVolume) return String.fromCodePoint(0xF0581)
-                if (Audio.isLowVolume) return String.fromCodePoint(0xF057F)
-                if (Audio.isMediumVolume) return String.fromCodePoint(0xF0580)
+                if (AudioService.noVolume) return String.fromCodePoint(0xF0581)
+                if (AudioService.isLowVolume) return String.fromCodePoint(0xF057F)
+                if (AudioService.isMediumVolume) return String.fromCodePoint(0xF0580)
 
                 return String.fromCodePoint(0xF057E)
             }
@@ -39,8 +39,8 @@ Widget {
 
         Text {
             text: {
-                if (!Audio.ready) return "-"
-                if (Audio.muted) return "Muted"
+                if (!AudioService.ready) return "-"
+                if (AudioService.muted) return "Muted"
                 return layout.volumePercent + "%"
             }
 
@@ -55,7 +55,7 @@ Widget {
     }
 
     TapHandler {
-        onTapped: Audio.toggleMute()
+        onTapped: AudioService.toggleMute()
     }
 
     MouseArea {
@@ -64,8 +64,8 @@ Widget {
         hoverEnabled: false
 
         onWheel: (event) => {
-            if (event.angleDelta.y > 0) Audio.volumeUp()
-            else if (event.angleDelta.y < 0) Audio.volumeDown()
+            if (event.angleDelta.y > 0) AudioService.volumeUp()
+            else if (event.angleDelta.y < 0) AudioService.volumeDown()
         }
     }
 }

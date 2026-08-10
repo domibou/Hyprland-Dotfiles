@@ -12,7 +12,7 @@ DoubleWidget {
         spacing: Config.iconSpacing
 
         Text {
-            text: Wifi.isWifiConnected ? "󰖩" : "󱚼"
+            text: WifiService.isWifiConnected ? "󰖩" : "󱚼"
 
             color: Colors.wifi
 
@@ -23,7 +23,7 @@ DoubleWidget {
         }
 
         Text {
-            text: Wifi.isWifiConnected ? Wifi.signalStrength : "-"
+            text: WifiService.isWifiConnected ? WifiService.signalStrength : "-"
 
             color: Colors.wifi
 
@@ -35,7 +35,7 @@ DoubleWidget {
         }
     }
     rightContent: Text {
-        text: Wifi.isWifiConnected ? Wifi.networkName : "-"
+        text: WifiService.isWifiConnected ? WifiService.networkName : "-"
 
         color: Colors.wifi
 

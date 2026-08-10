@@ -5,7 +5,6 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Effects
 
-
 import "widgets"
 import "../.."
 
@@ -23,9 +22,15 @@ LazyLoader {
         implicitWidth: content.implicitWidth + Config.windowShadowMargins
         implicitHeight: content.implicitHeight + Config.windowShadowMargins
 
-        visible: true
-
         color: "transparent"
+
+        Shortcut {
+            sequence: "Escape"
+
+            onActivated: {
+                launcherLoader.active = false
+            }
+        }
 
         MultiEffect {
             anchors.fill: content
@@ -51,10 +56,10 @@ LazyLoader {
 
             ColumnLayout {
                 id: layout
-                
-                spacing: 25
 
                 anchors.centerIn: parent
+
+                spacing: 25
 
                 TextField {
                     id: input
@@ -70,7 +75,6 @@ LazyLoader {
                     Keys.onPressed: event => {
                         if (event.key === Qt.Key_Down) appList.next()
                         if (event.key === Qt.Key_Up) appList.prev();
-                        if (event.key === Qt.Key_Escape) launcherLoader.active = false
                     }
 
                     onAccepted: {
@@ -101,7 +105,7 @@ LazyLoader {
                         border.width: 4
                         border.color: Colors.accent
 
-                        color: Colors.windowBackground
+                        color: "transparent"
                     }
                 }
 

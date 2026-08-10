@@ -4,7 +4,7 @@ import Quickshell
 import QtQuick
 
 Singleton {
-    readonly property real opacity: 0.7
+    readonly property real opacity: 0.8
 
     readonly property color black: Qt.rgba(0, 0, 0)
     readonly property color white: Qt.rgba(1, 0.99, 0.91)
@@ -25,11 +25,9 @@ Singleton {
     readonly property color indicatorHigh: Qt.rgba(1, 0.48, 0,opacity)
     readonly property color indicatorCritical: Qt.rgba(1, 0, 0,opacity)
 
-    readonly property color windowBackground: '#101010'
+    readonly property color windowBackground: Qt.rgba(0.06, 0.06, 0.06)
 
     readonly property color textAgainstToggledOn: black
-
-    readonly property color highlight: accent
 
     readonly property color nightLight: yellow
     readonly property color audio: red

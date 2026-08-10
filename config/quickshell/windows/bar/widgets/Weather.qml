@@ -25,7 +25,7 @@ DoubleWidget {
         Text {
             color: Colors.weather
 
-            text: isNaN(Weather.temperature) ? "-" : Weather.temperature + "°C"
+            text: isNaN(WeatherService.temperature) ? "-" : WeatherService.temperature + "°C"
 
             font {
                 family: Config.textFontFamily
@@ -52,7 +52,7 @@ DoubleWidget {
         Text {
             color: Colors.weather
 
-            text: isNaN(Weather.humidity) ? "-" : Weather.humidity + "%"
+            text: isNaN(WeatherService.humidity) ? "-" : WeatherService.humidity + "%"
 
             font {
                 family: Config.textFontFamily

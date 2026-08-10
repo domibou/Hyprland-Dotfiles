@@ -8,11 +8,11 @@ import "../../../"
 
 ListView {
     clip: true
-    currentIndex: -1
     interactive: false
 
+    currentIndex: -1
     highlightFollowsCurrentItem: true
-    highlight: Rectangle { color: Colors.highlight; radius: height / 2 }
+    highlight: Rectangle { color: Colors.accent; radius: height / 2 }
     highlightMoveVelocity: 700
 
     model: filteredApps
@@ -78,6 +78,6 @@ ListView {
     }
 
     function executeSelectedApp() {
-        if (currentIndex !== -1) filteredApps[currentIndex].execute()
+        if (currentItem) currentItem.modelData.execute()
     }
 }
