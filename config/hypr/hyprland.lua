@@ -10,6 +10,7 @@ require("core.monitors")
 require("core.windowrules")
 require("core.programs")
 require("core.binds")
+require("core.plugins")
 
 
 

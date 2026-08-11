@@ -41,7 +41,7 @@ hl.bind(second .. " + down",  hl.dsp.window.move({ direction = "down" }))
 hl.bind(main .. " + F",  hl.dsp.window.fullscreen({ mode = "maximized" }))
 
 -- Switch workspaces with main + [0-9]
--- Move active window to a workspace with main + SHIFT + [0-9]
+-- Move active window to a workspace with main + second + [0-9]
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
     hl.bind(main .. " + " .. key, hl.dsp.focus({ workspace = i}))

@@ -5,17 +5,14 @@ import "../.."
 
 Rectangle {
     implicitWidth: dataContainer.implicitWidth + Config.widgetWidthPadding
-    implicitHeight: dataContainer.implicitHeight + Config.widgetHeightPadding
+    implicitHeight: Config.widgetHeight
     
     radius: Config.widgetRadius
-    color: colorOverride ? colorOverride : colorDefault
+    color: defaultColor
 
     readonly property bool hovered: hoverHandler.hovered
-
     property bool clickable: false
-    property color colorDefault: clickable ? (hoverHandler.hovered ? Colors.widgetHover : Colors.widget) : Colors.widget
-    property var colorOverride: undefined
-
+    readonly property color defaultColor: clickable ? (hoverHandler.hovered ? Colors.widgetHover : Colors.widget) : Colors.widget
     property alias content: dataContainer.data
 
     Item {

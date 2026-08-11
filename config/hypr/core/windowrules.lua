@@ -1,5 +1,5 @@
 local suppressMaximizeRule = hl.window_rule({
-    -- Ignore maximize requests from all apps. You'll probably like this.
+    -- Ignore maximize requests from all apps
     name  = "suppress-maximize-events",
     match = { class = ".*" },
 
@@ -27,6 +27,14 @@ hl.window_rule({
 
     move  = "20 monitor_h-120",
     float = true,
+})
+
+hl.window_rule({
+    name = "float-kitty",
+    match = { class = "^kitty$" },
+
+    float = true,
+    size = "1280 800",
 })
 
 hl.layer_rule({

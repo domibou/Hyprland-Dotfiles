@@ -37,7 +37,7 @@ LazyLoader {
             source: content
 
             shadowEnabled: true
-            shadowColor: '#000000'
+            shadowColor: Colors.black
             shadowBlur: 0.5
             shadowVerticalOffset: 5
         }
@@ -93,7 +93,7 @@ LazyLoader {
                         weight: Config.textWeight
                     }
 
-                    placeholderTextColor : '#2a2a2a'
+                    placeholderTextColor : Colors.launcherPlaceholderTextColor
                     color: Colors.accent
 
                     background: Rectangle {

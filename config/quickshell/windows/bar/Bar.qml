@@ -46,7 +46,7 @@ Scope {
             right: true
         }
 
-        implicitHeight: Config.gapsOut + layout.implicitHeight
+        implicitHeight: layout.implicitHeight + Config.gapsOut
         
         color: "transparent"
 
@@ -85,6 +85,7 @@ Scope {
 
                     Nightlight {}
                     Audio {}
+                    Workspaces {}
                 }
             }
 

@@ -10,7 +10,11 @@ import "../../components"
 Widget {
     id: widget
 
+    implicitHeight: layout.implicitHeight + 5
+
     content: RowLayout {
+        id: layout
+        
         spacing: Config.iconSpacing
 
         Text {

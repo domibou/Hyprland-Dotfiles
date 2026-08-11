@@ -35,7 +35,7 @@ LazyLoader {
             source: content
 
             shadowEnabled: true
-            shadowColor: '#000000'
+            shadowColor: Colors.black
             shadowBlur: 0.5
             shadowVerticalOffset: 5
         }

@@ -29,11 +29,10 @@ GridView {
 
     highlight: Rectangle {
         color: "transparent"
-
         border.width: 5
         border.color: Colors.accent
 
-        radius: grid.imageRadius
+        radius: grid.imageRadius + spacing * 0.5
     }
 
     cellWidth: imageWidth + spacing
@@ -51,39 +50,29 @@ GridView {
         height: grid.cellHeight
 
         Image {
-            id: image
+            id: sourceImage
 
-            anchors.centerIn: parent
             visible: false
-
-            width: grid.imageWidth
-            height: grid.imageHeight
 
             source: "file://" + modelData.path
             asynchronous: true
-
             fillMode: Image.PreserveAspectCrop
 
             sourceSize.width: grid.imageWidth * 2
             sourceSize.height: grid.imageHeight * 2
         }
 
-        Item {
+        Rectangle {
             id: roundMask
 
-            visible: false     
+            anchors.fill: parent
+            visible: false
 
-            width: grid.imageWidth
-            height: grid.imageHeight
+            radius: grid.imageRadius
+            antialiasing: true
 
             layer.enabled: true
             layer.smooth: true
-
-            Rectangle {
-                anchors.fill: parent
-                radius: grid.imageRadius
-                antialiasing: true
-            }
         }
 
         MultiEffect {
@@ -94,10 +83,13 @@ GridView {
             width: grid.imageWidth
             height: grid.imageHeight
 
-            source: image
+            source: sourceImage
 
             maskEnabled: true
             maskSource: roundMask
+
+            maskThresholdMin: 0.8
+            maskSpreadAtMin: 0.8
         }
 
         MultiEffect {
@@ -106,7 +98,7 @@ GridView {
             source: roundedImage
 
             shadowEnabled: true
-            shadowColor: "#000000"
+            shadowColor: Colors.black
             shadowBlur: 0.5
             shadowVerticalOffset: 5
         }

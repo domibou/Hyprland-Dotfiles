@@ -11,11 +11,11 @@ import "../../components"
 Widget {
     clickable: true
 
-    colorOverride: NightlightService.active
+    color: NightlightService.active
         ? (hovered
-            ? Colors.widgetHoverToggledOn
-            : Colors.widgetToggledOn)
-        : undefined
+            ? Colors.nightlightHoverToggledOn
+            : Colors.nightlightToggledOn)
+        : defaultColor
         
     content:RowLayout {            
         spacing: Config.iconSpacing
@@ -23,7 +23,7 @@ Widget {
         Text {
             text: "󰖔"
 
-            color: NightlightService.active ? Colors.textAgainstToggledOn : Colors.nightLight
+            color: NightlightService.active ? Colors.nightlightTextToggledOn : Colors.nightLight
 
             font {
                 family: Config.textFontFamily
@@ -36,7 +36,7 @@ Widget {
 
             text: NightlightService.active ? NightlightService.temp + "K" : ""  
             
-            color: NightlightService.active ? Colors.textAgainstToggledOn : Colors.black          
+            color: NightlightService.active ? Colors.nightlightTextToggledOn : Colors.black          
 
             font {
                 family: Config.textFontFamily

@@ -13,9 +13,11 @@ Singleton {
     function setWallpaper(path) {
         matugenProcess.command = ["matugen", "image", path, "--source-color-index", "0"]
         awwwProcess.command = ["awww", "img", path, "--transition-type", "wipe", "--transition-fps", "165", "--transition-duration", "1"]
+        lockscreenWallpaperProcess.command = ["sh", "-c", "printf '%s' \"$1\" > \"$HOME/.cache/current-wallpaper\"", "sh", path]
 
         matugenProcess.running = true
         awwwProcess.running = true
+        lockscreenWallpaperProcess.running = true
     }
 
     Process {
@@ -43,5 +45,9 @@ Singleton {
 
     Process {
         id: awwwProcess
+    }
+
+    Process {
+        id: lockscreenWallpaperProcess
     }
 }
