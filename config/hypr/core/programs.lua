@@ -5,7 +5,6 @@ local programs = {
     browser = "brave",
 
     wallpaper = "qs ipc call wallpaper open",
-    --wallpaper = "bash ~/.dotfiles/scripts/wallpaper.sh",
 
     lockScreen = "hyprlock",
     screenshot = "grim -g \"$(slurp)\" - | swappy -f - -o ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png"

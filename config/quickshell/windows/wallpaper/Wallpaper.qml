@@ -85,7 +85,7 @@ LazyLoader {
                             weight: Config.textWeight
                         }
 
-                        color: Colors.cyan
+                        color: Colors.tertiary
                     }
                 }
 

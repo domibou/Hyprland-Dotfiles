@@ -8,6 +8,11 @@ command = "swww img {{image}} --transition-type grow"
 
 [templates]
 
+[templates.quickshell]
+input_path = "~/.dotfiles/config/matugen/templates/colors.qml"
+output_path = "~/.dotfiles/config/quickshell/Colors.qml"
+post_hook = "hyprctl reload"
+
 [templates.hyprland]
 input_path = "~/.dotfiles/config/matugen/templates/hyprland.lua"
 output_path = "~/.dotfiles/config/hypr/colors.lua"

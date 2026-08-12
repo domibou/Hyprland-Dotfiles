@@ -46,20 +46,13 @@ Scope {
             right: true
         }
 
-        implicitHeight: layout.implicitHeight + Config.gapsOut
+        implicitHeight: barLayout.implicitHeight + Config.gapsOut
         
         color: "transparent"
 
-        HoverHandler {
-            onHoveredChanged: {
-                if (!hovered)
-                    root.showBar = false
-            }
-        }
-
         RowLayout {
-            id: layout
-            
+            id: barLayout
+
             anchors {
                 left: parent.left
                 right: parent.right
@@ -70,33 +63,42 @@ Scope {
             }
 
             Item {
+                id: barLeft
+
                 Layout.fillWidth: true
-                Layout.fillHeight: true
 
-                implicitHeight: widgetGroup1.implicitHeight
+                implicitHeight: barLeftLayout.implicitHeight
 
-                WidgetContainer {
-                    id: widgetGroup1
+                RowLayout {
+                    id: barLeftLayout 
 
-                    anchors {
-                        left: parent.left
-                        verticalCenter: parent.verticalCenter
+                    anchors.fill: parent
+                        
+                    WidgetContainer {
+                        id: widgetGroup1
+
+                        System {}
                     }
-
-                    Nightlight {}
-                    Audio {}
-                    Workspaces {}
+                
+                    WidgetContainer {
+                        id: widgetGroup2
+                        
+                        Workspaces {}
+                        Audio {}
+                        Nightlight {}
+                    }
                 }
             }
 
             Item {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
+                id: barCenter
 
-                implicitHeight: widgetGroup2.implicitHeight
+                Layout.fillWidth: true
+
+                implicitHeight: widgetGroup3.implicitHeight
 
                 WidgetContainer {
-                    id: widgetGroup2
+                    id: widgetGroup3
 
                     anchors.centerIn: parent
 
@@ -105,23 +107,28 @@ Scope {
             }
 
             Item {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
+                id: barRight
 
-                implicitHeight: widgetGroup3.implicitHeight
+                Layout.fillWidth: true
+
+                implicitHeight: widgetGroup4.implicitHeight
 
                 WidgetContainer {
-                    id: widgetGroup3
+                    id: widgetGroup4
 
-                    anchors {
-                        right: parent.right
-                        verticalCenter: parent.verticalCenter
-                    }
+                    anchors.right: parent.right
 
                     Wifi {}
                     Sensors {}
                     Weather {}
-                }
+                }      
+            }
+        }
+
+        HoverHandler {
+            onHoveredChanged: {
+                if (!hovered)
+                    root.showBar = false
             }
         }
     }

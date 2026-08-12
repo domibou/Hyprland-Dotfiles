@@ -20,6 +20,7 @@ ListView {
     readonly property var apps: DesktopEntries.applications.values
 
     delegate: Item {
+        required property int index
         required property var modelData
 
         width: ListView.view.width
@@ -53,10 +54,16 @@ ListView {
                     weight: Config.textWeight
                 }
 
-                color: Colors.white
+                color: index === currentIndex ? Colors.overPrimary : Colors.overSurface
 
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
+
+                Behavior on color {
+                    ColorAnimation {
+                        duration: 200
+                    }
+                }
             }
         }
     }

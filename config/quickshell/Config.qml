@@ -8,16 +8,17 @@ Singleton {
 
     readonly property int gapsOut: 18 // set to Hyprland config option gaps_out from general.lua
 
-    readonly property int widgetHeight: 45
-    readonly property int widgetWidthPadding: 30
-    readonly property int widgetMargins: 0 // condition to enforce in the config settings --> showWidgetContainer ? > Math.max(theValue, widgetSpacingMin) : 0
-    readonly property int widgetSpacingMin: 8
-    readonly property int widgetRadius: 40
+    readonly property bool showWidgetContainer: false
+
+    readonly property int widgetContainerMargins: showWidgetContainer ? 4 : 0
+    readonly property int widgetContainerSpacing: showWidgetContainer ? widgetContainerMargins :  10
     readonly property int widgetContainerRadius: widgetRadius * 1.8
 
-    readonly property int workspaceMargins: 15
+    readonly property int widgetHeight: 45
+    readonly property int widgetWidthPadding: 30
+    readonly property int widgetRadius: 40
 
-    readonly property bool showWidgetContainer: false
+    readonly property int childWidgetMargins: 15
 
     readonly property int widgetHoverAnimationDuration: 75
 
@@ -29,6 +30,7 @@ Singleton {
     readonly property int textWeight: 500
     readonly property string textFontFamily: "JetBrainsMono"
 
+    readonly property string osIcon: ""
     readonly property int iconSize: 30
     readonly property int iconSpacing: 10
 

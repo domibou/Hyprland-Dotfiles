@@ -93,7 +93,7 @@ LazyLoader {
                         weight: Config.textWeight
                     }
 
-                    placeholderTextColor : Colors.launcherPlaceholderTextColor
+                    placeholderTextColor : Colors.accent
                     color: Colors.accent
 
                     background: Rectangle {

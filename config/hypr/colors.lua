@@ -1,16 +1,16 @@
 return {
-    primary = "#80d4db",
-    secondary = "#b1cbce",
-    tertiary = "#b7c7ea",
+    primary = "#93cdf6",
+    secondary = "#b6c9d8",
+    tertiary = "#cdc0e9",
 
-    background = "#0e1415",
-    surface = "#0e1415",
+    background = "#101417",
+    surface = "#101417",
 
-    on_primary = "#00363a",
-    on_background = "#dde4e4",
-    on_surface = "#dde4e4",
+    on_primary = "#00344c",
+    on_background = "#dfe3e7",
+    on_surface = "#dfe3e7",
 
-    outline = "#899393",
+    outline = "#8b9198",
 
     error = "#ffb4ab",
 }

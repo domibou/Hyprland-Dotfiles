@@ -9,7 +9,7 @@ import "../../components"
 Widget {
     id: container
 
-    implicitWidth: layout.implicitWidth + Config.workspaceMargins
+    implicitWidth: layout.implicitWidth + Config.childWidgetMargins
 
     clickable: false
 
@@ -18,12 +18,13 @@ Widget {
 
         Repeater {
             id: repeater
+            
             model: Hyprland.workspaces
 
             delegate: Widget {
                 required property var modelData
 
-                implicitHeight: container.implicitHeight - Config.workspaceMargins
+                implicitHeight: container.implicitHeight - Config.childWidgetMargins
 
                 color: modelData.focused ? Colors.workspaces : defaultColor
 
