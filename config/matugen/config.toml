@@ -3,9 +3,6 @@
 [config]
 reload_apps = true
 
-[wallpaper]
-command = "swww img {{image}} --transition-type grow"
-
 [templates]
 
 [templates.quickshell]
@@ -19,5 +16,6 @@ output_path = "~/.dotfiles/config/hypr/colors.lua"
 post_hook = "hyprctl reload"
 
 [templates.kitty]
-input_path = "~/.dotfiles/config/matugen/templates/kitty.conf"
-output_path = "~/.dotfiles/config/kitty/colors.conf"
+input_path = '~/.dotfiles/config/matugen/templates/kitty.conf'
+output_path = '~/.config/kitty/themes/Matugen.conf'
+post_hook = "kitty +kitten themes --reload-in=all Matugen"

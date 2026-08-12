@@ -4,11 +4,8 @@ set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_DIR="$HOME/.config"
-DOTFILES="$HOME/.dotfiles"
 
 mkdir -p "$CONFIG_DIR"
-
-ln -sfn "$REPO_DIR" "$DOTFILES"
 
 configs=(
     hypr
@@ -23,15 +20,12 @@ for config in "${configs[@]}"; do
     target="$CONFIG_DIR/$config"
     source="$REPO_DIR/config/$config"
 
-    if [[ -L "$target" ]]; then
-        rm "$target"
-    elif [[ -e "$target" ]]; then
-        mv "$target" "${target}.backup"
-        echo "Backed up $target -> ${target}.backup"
+    if [[ -e "$target" || -L "$target" ]]; then
+        rm -rf "$target"
     fi
 
-    ln -s "$source" "$target"
-    echo "Linked $config"
+    cp -a "$source" "$target"
+    echo "Copied $config"
 done
 
 hyprctl reload
