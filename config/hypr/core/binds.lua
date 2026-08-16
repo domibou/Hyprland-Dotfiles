@@ -11,6 +11,7 @@ hl.bind(main .. " + W", hl.dsp.exec_cmd(programs.browser))
 hl.bind("SUPER + L", hl.dsp.exec_cmd(programs.lockScreen))
 hl.bind(second .. " + W", hl.dsp.exec_cmd(programs.wallpaper))
 hl.bind("Print", hl.dsp.exec_cmd(programs.screenshot))
+hl.bind(second .. " + S", hl.dsp.exec_cmd(programs.settings))
 
 
 --Close tile
@@ -47,10 +48,6 @@ for i = 1, 10 do
     hl.bind(main .. " + " .. key, hl.dsp.focus({ workspace = i}))
     hl.bind(second .. " + " .. key, hl.dsp.window.move({ workspace = i }))
 end
-
--- Special workspace (scratchpad)
-hl.bind(main .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(main .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces
 hl.bind(main .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))

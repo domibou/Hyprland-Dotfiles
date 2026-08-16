@@ -1,12 +1,15 @@
 import QtQuick
 import QtQuick.Layouts
-import "../.."
+
+import "../../"
 
 Rectangle {
     implicitWidth: layout.implicitWidth + Config.widgetContainerMargins * 2
     implicitHeight: layout.implicitHeight + Config.widgetContainerMargins * 2
 
     radius: Config.widgetContainerRadius
+    border.width: Config.showWidgetContainer ? Config.borderWidth : 0
+    border.color: Config.showWidgetContainer ? Colors.accent : "transparent"
     color: Config.showWidgetContainer ? Colors.widgetContainer : "transparent"
 
     default property alias content: layout.data

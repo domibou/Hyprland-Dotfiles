@@ -1,16 +1,18 @@
+-- Default colors loaded when first running install.sh so that the setup works before explicitly generating color files with matugen
+
 return {
-    primary = "#80d4db",
-    secondary = "#b1cbce",
-    tertiary = "#b7c7ea",
+    primary = "#b0b0b0",
+    secondary = "#a0a0a0",
+    tertiary = "#c0c0c0",
 
-    background = "#0e1415",
-    surface = "#0e1415",
+    background = "#181818",
+    surface = "#181818",
 
-    on_primary = "#00363a",
-    on_background = "#dde4e4",
-    on_surface = "#dde4e4",
+    on_primary = "#202020",
+    on_background = "#d8d8d8",
+    on_surface = "#d8d8d8",
 
-    outline = "#899393",
+    outline = "#707070",
 
-    error = "#ffb4ab",
+    error = "#b8b8b8",
 }

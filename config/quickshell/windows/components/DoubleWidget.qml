@@ -1,30 +1,17 @@
 import QtQuick
 import QtQuick.Layouts
 
-import "../.."
+import "../../"
 
 
-Rectangle {
-    implicitWidth: dataContainer.implicitWidth + Config.widgetWidthPadding
-    implicitHeight: Config.widgetHeight
-
-    radius: Config.widgetRadius
-
-    color: clickable ? (hoverHandler.hovered ? Colors.widgetHover : Colors.widget) : Colors.widget
-
-    readonly property bool hovered: hoverHandler.hovered
-
-    property bool clickable: false
-
+Widget {
     property alias leftContent: left.data
     property alias rightContent: right.data
 
-    RowLayout {
+    content: RowLayout {
         id: dataContainer
 
         spacing: Config.iconSpacing
-
-        anchors.centerIn: parent
         
         Item {
             id: left
@@ -37,7 +24,8 @@ Rectangle {
             implicitWidth: 2
             implicitHeight: parent.height * 0.6
 
-            color: Colors.doubleWidgetSeparator
+            radius: width / 2
+            color: Colors.separator
 
             Layout.topMargin: 4
             Layout.bottomMargin: 4
@@ -49,20 +37,5 @@ Rectangle {
             implicitWidth: childrenRect.width
             implicitHeight: childrenRect.height    
         }
-    }
-
-    HoverHandler {
-        id: hoverHandler
-    }
-    
-    Behavior on implicitWidth {
-        NumberAnimation {
-            duration: 250
-            easing.type: Easing.OutCubic
-        }
-    }
-
-    Behavior on color {
-        ColorAnimation { duration: Config.widgetHoverAnimationDuration }
     }
 }

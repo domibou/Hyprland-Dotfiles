@@ -15,8 +15,6 @@ fzf
 zoxide
 imagemagick
 
-hyprlauncher
-
 hypridle
 ddcutil
 
@@ -33,3 +31,5 @@ pkg-config
 git
 g++
 gcc
+
+adwsteamgtk

@@ -51,8 +51,9 @@ LazyLoader {
             implicitHeight: layout.implicitHeight + Config.launcherMargins * 2
 
             radius: appList.visible || noResults.visible ? Config.windowRadius : height / 2
-
-            color: Colors.windowBackground
+            border.width: Config.borderWidth
+            border.color: Colors.accent
+            color: Qt.rgba(Colors.windowBackground.r, Colors.windowBackground.g, Colors.windowBackground.b, Config.opacity)
 
             ColumnLayout {
                 id: layout
@@ -102,7 +103,7 @@ LazyLoader {
 
                         radius: height / 2
 
-                        border.width: 4
+                        border.width: Config.borderWidth
                         border.color: Colors.accent
 
                         color: "transparent"
@@ -112,7 +113,7 @@ LazyLoader {
                 AppList {
                     id: appList
 
-                    visible: foundMatches()
+                    visible: appList.foundMatches()
 
                     Layout.fillWidth: true
                     Layout.preferredHeight: 350

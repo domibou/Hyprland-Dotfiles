@@ -7,6 +7,8 @@ import Quickshell.Widgets
 import "../../../"
 
 ListView {
+    id: list
+    
     clip: true
     interactive: false
 
@@ -23,7 +25,7 @@ ListView {
         required property int index
         required property var modelData
 
-        width: ListView.view.width
+        width: list.width
         height: Config.imageIconSize + 10
 
         RowLayout {

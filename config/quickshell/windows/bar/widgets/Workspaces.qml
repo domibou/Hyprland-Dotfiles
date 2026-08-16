@@ -9,9 +9,9 @@ import "../../components"
 Widget {
     id: container
 
-    implicitWidth: layout.implicitWidth + Config.childWidgetMargins
-
     clickable: false
+
+    implicitWidth: layout.implicitWidth + Config.childWidgetMargins
 
     content: RowLayout {
         id: layout
@@ -24,11 +24,13 @@ Widget {
             delegate: Widget {
                 required property var modelData
 
+                clickable: true
+
                 implicitHeight: container.implicitHeight - Config.childWidgetMargins
 
                 color: modelData.focused ? Colors.workspaces : defaultColor
 
-                clickable: true
+                border.width: 0
 
                 content: Text {
                     text: modelData.id

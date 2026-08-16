@@ -1,5 +1,4 @@
--- ~/.config/hypr/hyprland.lua
-local colors = require("colors")
+colors = require("colors")
 
 require("core.animations")
 require("core.autostart")

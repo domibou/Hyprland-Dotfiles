@@ -6,6 +6,7 @@ import "windows/bar"
 import "windows/volume"
 import "windows/launcher"
 import "windows/wallpaper"
+import "windows/settings"
 import "ipc"
 
 ShellRoot {
@@ -25,4 +26,7 @@ ShellRoot {
 
   Wallpaper { id: wallpaper }
   WallpaperIpc { wallpaperLoader: wallpaper }
+
+  Settings { id: settings }
+  SettingsIpc { settingsLoader: settings }
 }

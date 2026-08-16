@@ -7,6 +7,9 @@ Singleton {
     readonly property real weatherWidgetLongitude: -71.45131
 
     readonly property int gapsOut: 18 // set to Hyprland config option gaps_out from general.lua
+    
+    readonly property real opacity: 0.4
+    readonly property int borderWidth: 3
 
     readonly property bool showWidgetContainer: false
 
@@ -41,4 +44,6 @@ Singleton {
     readonly property int windowShadowMargins: 30
 
     readonly property int launcherMargins: 20
+
+    readonly property int animationDuration: 250
 }

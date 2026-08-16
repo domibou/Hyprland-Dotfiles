@@ -10,9 +10,5 @@ Scope {
         function open() {
             wallpaperLoader.active = true
         }
-
-        function close() {
-            wallpaperLoader.active = false
-        }
     }
 }

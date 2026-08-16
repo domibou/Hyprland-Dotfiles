@@ -1,21 +1,52 @@
-# ~/.config/matugen/config.toml
-
 [config]
-reload_apps = true
+reload_apps = false
 
 [templates]
 
 [templates.quickshell]
-input_path = "~/.dotfiles/config/matugen/templates/colors.qml"
-output_path = "~/.dotfiles/config/quickshell/Colors.qml"
-post_hook = "hyprctl reload"
+input_path = "./templates/quickshell.qml"
+output_path = "~/.config/quickshell/Colors.qml"
 
 [templates.hyprland]
-input_path = "~/.dotfiles/config/matugen/templates/hyprland.lua"
-output_path = "~/.dotfiles/config/hypr/colors.lua"
+input_path = "./templates/hyprland.lua"
+output_path = "~/.config/hypr/colors.lua"
 post_hook = "hyprctl reload"
 
 [templates.kitty]
-input_path = '~/.dotfiles/config/matugen/templates/kitty.conf'
+input_path = './templates/kitty.conf'
 output_path = '~/.config/kitty/themes/Matugen.conf'
 post_hook = "kitty +kitten themes --reload-in=all Matugen"
+
+[templates.yazi]
+input_path = './templates/yazi.toml'
+output_path = '~/.config/yazi/theme.toml'
+
+[templates.btop]
+input_path = './templates/btop.theme'
+output_path = '~/.config/btop/themes/matugen.theme'
+post_hook = 'pkill -USR2 btop || true'
+
+[templates.gtk3]
+input_path = './templates/gtk.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+[templates.gtk4]
+input_path = './templates/gtk.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+[templates.vesktop]
+input_path = './templates/vesktop.theme.css'
+output_path = '~/.config/vesktop/themes/midnight-tokyo-night.theme.css'
+
+[templates.vscode-raw]
+input_path = './templates/vscode-colors'
+output_path = '~/.cache/matugen/vscode-colors'
+
+[templates.vscode-json]
+input_path = './templates/vscode-colors.json'
+output_path = '~/.cache/matugen/vscode-colors.json'
+
+[templates.steam]
+input_path = './templates/steam.css'
+output_path = '~/.config/AdwSteamGtk/custom.css'

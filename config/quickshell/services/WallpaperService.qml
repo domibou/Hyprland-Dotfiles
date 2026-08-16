@@ -23,7 +23,7 @@ Singleton {
     Process {
         id: getWallpapersProcess
 
-        command: ["fd", "-e", "jpg", "-e", "jpeg", "-e", "png", "-e", "webp", "-e", "avif", ".", Quickshell.env("HOME") + "/.dotfiles/wallpapers"]
+        command: ["fd", "-e", "jpg", "-e", "jpeg", "-e", "png", "-e", "webp", "-e", "avif", ".", Quickshell.env("HOME") + "/Pictures/wallpapers"]
 
         stdout: StdioCollector {
             onStreamFinished: {

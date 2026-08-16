@@ -10,9 +10,5 @@ Scope {
         function open() {
             launcherLoader.active = true
         }
-
-        function close() {
-            launcherLoader.active = false
-        }
     }
 }

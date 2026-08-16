@@ -16,6 +16,7 @@ GridView {
 
     Component.onCompleted: {
         forceActiveFocus()
+        
         WallpaperService.getWallpapers()
     }
 
@@ -29,9 +30,8 @@ GridView {
 
     highlight: Rectangle {
         color: "transparent"
-        border.width: 5
+        border.width: Config.borderWidth
         border.color: Colors.accent
-
         radius: grid.imageRadius + spacing * 0.5
     }
 
@@ -43,6 +43,7 @@ GridView {
     Layout.alignment: Qt.AlignHCenter
 
     model: WallpaperService.wallpapers
+    
     delegate: Item {
         required property var modelData
 

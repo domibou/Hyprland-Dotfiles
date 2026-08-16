@@ -49,8 +49,9 @@ LazyLoader {
             implicitHeight: layout.implicitHeight + Config.windowMargins * 2
 
             radius: Config.windowRadius
-
-            color: Colors.windowBackground
+            border.width: Config.borderWidth
+            border.color: Colors.accent
+            color: Qt.rgba(Colors.windowBackground.r, Colors.windowBackground.g, Colors.windowBackground.b, Config.opacity)
 
             ColumnLayout {
                 id: layout

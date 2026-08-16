@@ -28,7 +28,10 @@ Widget {
             RowLayout {
                 Widget {
                     implicitHeight: container.implicitHeight - Config.childWidgetMargins
+
                     clickable: true
+
+                    border.width: 0
 
                     content: Text {
                         text: "shutdown"
@@ -42,13 +45,16 @@ Widget {
                     }
 
                     TapHandler {
-                        onTapped: console.log("shut")
+                        onTapped: SystemService.shutdown()
                     }
                 }
 
                 Widget {
                     implicitHeight: container.implicitHeight - Config.childWidgetMargins
+
                     clickable: true
+
+                    border.width: 0
 
                     content: Text {
                         text: "reboot"
@@ -62,7 +68,7 @@ Widget {
                     }
 
                     TapHandler {
-                        onTapped: {console.log("reboot")}
+                        onTapped: SystemService.reboot()
                     }
                 }
             }
@@ -94,7 +100,7 @@ Widget {
                         weight: Config.textWeight
                     }
 
-                    color: Colors.system///
+                    color: Colors.system
                 }
             }
         }

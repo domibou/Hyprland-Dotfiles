@@ -57,7 +57,7 @@ Widget {
 
                 Behavior on implicitWidth {
                     NumberAnimation {
-                        duration: 400
+                        duration: Config.animationDuration
                         easing.type: Easing.OutCubic
                     }
                 }
